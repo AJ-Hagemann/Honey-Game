@@ -14,6 +14,10 @@ config/name="Honey- Game"
 run/main_scene="res://Game Board.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameState="*res://GameState.gd"
+
 [importer_defaults]
 
 texture={
