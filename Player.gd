@@ -29,10 +29,10 @@ func move(spaces):
 func movespace():
 	match space:
 		0: dir = Vector2.RIGHT
-		11: dir = Vector2.DOWN
-		18: dir = Vector2.LEFT
-		29: dir = Vector2.UP
-	space = (space + 1) % 36
+		8: dir = Vector2.DOWN
+		16: dir = Vector2.LEFT
+		24: dir = Vector2.UP
+	space = (space + 1) % 32
 	tween.interpolate_property(self, "position", position,
 	position + dir * tilesize, 1.0/speed, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 	tween.start()

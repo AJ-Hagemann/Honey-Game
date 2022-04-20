@@ -20,7 +20,6 @@ func _ready():
 	update_label()
 	
 
-
 # moves camera to parent
 func move_camera(p):
 	cam.get_parent().remove_child(cam)
