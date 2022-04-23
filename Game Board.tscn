@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game Board.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Honeycomb.jpg" type="Texture" id=4]
 
-[node name="Game Board" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 53, 50.5 )
+
+[node name="Game_Board" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
@@ -177,6 +180,13 @@ position = Vector2( 576, 578 )
 scale = Vector2( 1.49333, 2.245 )
 texture = ExtResource( 4 )
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 66, 192.5 )
+shape = SubResource( 1 )
+
 [connection signal="pressed" from="HUD/HBoxContainer/MoveButton" to="." method="_on_MoveButton_pressed"]
 [connection signal="pressed" from="HUD/HBoxContainer/EndTurn" to="." method="_on_EndTurn_pressed"]
 [connection signal="pressed" from="HUD/TurnSwitch/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

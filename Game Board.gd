@@ -60,3 +60,10 @@ func _on_Button_pressed():
 	moveBtn.visible=true
 	moveBtn.disabled=false
 	$HUD/TurnSwitch.visible=false
+
+func Win_game():
+	$HUD.hide()
+	
+
+func _on_Area2D_area_exited(area):
+	Win_game()
