@@ -37,6 +37,8 @@ func _on_MoveButton_pressed():
 	yield(GameState.currentPlayer, 'movedone')
 	moveBtn.visible = false
 	endBtn.visible = true
+	
+		
 
 
 func _on_EndTurn_pressed():
@@ -65,5 +67,5 @@ func Win_game():
 	$HUD.hide()
 	
 
-func _on_Area2D_area_exited(area):
+func _on_Area2D_area_exited(_area):
 	Win_game()
