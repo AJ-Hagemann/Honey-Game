@@ -8,16 +8,33 @@ onready var spaceLabel = $HUD/HBoxContainer/SpaceLabel
 onready var moveBtn = $HUD/HBoxContainer/MoveButton
 onready var endBtn = $HUD/HBoxContainer/EndTurn
 var rng = RandomNumberGenerator.new()
+#Create Var of the player1 and player2 pollen and honey counters
+var PollenP1 = 0
+var HoneyP1 = 0
+var PollenP2 = 0
+var HoneyP2 = 0
 
 var nextPlayer = ["", "Player 2", "Player 1"]
 var currPlayerIdx = 1
 # Called when the node enters the scene tree for the first time.
+
+	
+	
+	
 func _ready():
 	rng.randomize()
 	move_camera(p1)
 	GameState.currentPlayer = p1
 	GameState.currentPlayerLabel = "Player 1"
 	update_label()
+	PollenP1 = 0
+	PollenP2 = 0
+	HoneyP1 = 0
+	HoneyP2 = 0
+	$HUD/HBoxContainer2/PollenScore.text = str(PollenP1)
+	$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
+	$HUD/HBoxContainer2/HoneyScore.text = str(HoneyP1)
+	$HUD/HBoxContainer3/HoneyScore2.text = str(HoneyP2)
 	
 
 # moves camera to parent
@@ -37,6 +54,34 @@ func _on_MoveButton_pressed():
 	yield(GameState.currentPlayer, 'movedone')
 	moveBtn.visible = false
 	endBtn.visible = true
+	
+	if GameState.currentPlayer.space%2 == 0: 
+		print("this is working")
+		if currPlayerIdx == 1:
+			print("this is also working")
+			PollenP1 += 1
+			$HUD/HBoxContainer2/PollenScore.text = str(PollenP1)
+		
+	if $HUD/HBoxContainer2/PollenScore.text == "3":
+		HoneyP1 += 1
+		PollenP1 = 0
+		$HUD/HBoxContainer3/PollenScore.text = str(PollenP1)
+		$HUD/HBoxContainer2/HoneyScore.text = str(HoneyP1)
+		
+	if GameState.currentPlayer.space%2 == 0: 
+		print("player 2 works too")
+		if currPlayerIdx == 2:
+			print("player 2 also works")
+			PollenP2 += 1
+			$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
+		
+	if $HUD/HBoxContainer3/PollenScore2.text == "3":
+		HoneyP2 += 1
+		PollenP2 = 0
+		$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
+		$HUD/HBoxContainer3/HoneyScore2.text = str(HoneyP2)
+		
+		
 	
 		
 
@@ -62,10 +107,16 @@ func _on_Button_pressed():
 	moveBtn.visible=true
 	moveBtn.disabled=false
 	$HUD/TurnSwitch.visible=false
-
-func Win_game():
-	$HUD.hide()
 	
 
-func _on_Area2D_area_exited(_area):
-	Win_game()
+func Win_game():
+	pass
+
+
+func _on_Area2D_area_entered(area):
+	if currPlayerIdx == 1:
+		if $HUD/HBoxContainer2/P1Honey.text == "3":
+			Win_game()
+	if currPlayerIdx == 2:
+		if $HUD/HBoxContainer2/P2Honey.text == "3":
+			Win_game()		
