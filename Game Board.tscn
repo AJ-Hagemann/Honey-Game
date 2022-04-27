@@ -1,13 +1,18 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=9 format=2]
 =======
 [gd_scene load_steps=7 format=2]
 >>>>>>> 498843d1e5bd2fee185964a8afb9a4f58a53edbb
+=======
+[gd_scene load_steps=6 format=2]
+>>>>>>> parent of 23dc408 (win screen)
 
 [ext_resource path="res://Board.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game Board.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Honeycomb.jpg" type="Texture" id=4]
+<<<<<<< HEAD
 <<<<<<< HEAD
 [ext_resource path="res://Assets/Cafe Matcha.ttf" type="DynamicFontData" id=5]
 
@@ -20,6 +25,8 @@ font_data = ExtResource( 5 )
 =======
 [ext_resource path="res://September (Master).mp3" type="AudioStream" id=5]
 >>>>>>> 498843d1e5bd2fee185964a8afb9a4f58a53edbb
+=======
+>>>>>>> parent of 23dc408 (win screen)
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 53, 50.5 )
@@ -204,6 +211,8 @@ margin_bottom = 22.0
 text = "Pollen: "
 
 [node name="PollenScore2" type="Label" parent="HUD/HBoxContainer3"]
+anchor_top = 0.290323
+anchor_bottom = 0.290323
 margin_left = 107.0
 margin_right = 115.0
 margin_bottom = 31.0
@@ -218,39 +227,13 @@ margin_bottom = 22.0
 text = "Honey: "
 
 [node name="HoneyScore2" type="Label" parent="HUD/HBoxContainer3"]
+anchor_top = 0.290323
+anchor_bottom = 0.290323
 margin_left = 172.0
 margin_right = 180.0
 margin_bottom = 31.0
 text = "0
 "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect2" type="ColorRect" parent="HUD"]
-margin_right = 1025.0
-margin_bottom = 597.0
-color = Color( 0.827451, 0.768627, 0.152941, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label2" type="Label" parent="HUD/ColorRect2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -249.0
-margin_top = -148.5
-margin_right = 248.0
-margin_bottom = 151.5
-theme = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "YOU WIN"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
