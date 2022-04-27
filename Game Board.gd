@@ -65,7 +65,7 @@ func _on_MoveButton_pressed():
 	if $HUD/HBoxContainer2/PollenScore.text == "3":
 		HoneyP1 += 1
 		PollenP1 = 0
-		$HUD/HBoxContainer3/PollenScore.text = str(PollenP1)
+		$HUD/HBoxContainer2/PollenScore.text = str(PollenP1)
 		$HUD/HBoxContainer2/HoneyScore.text = str(HoneyP1)
 		
 	if GameState.currentPlayer.space%2 == 0: 
