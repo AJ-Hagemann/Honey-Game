@@ -35,6 +35,7 @@ func _ready():
 	$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
 	$HUD/HBoxContainer2/HoneyScore.text = str(HoneyP1)
 	$HUD/HBoxContainer3/HoneyScore2.text = str(HoneyP2)
+	$HUD/ColorRect.hide()
 	
 
 # moves camera to parent
@@ -56,9 +57,7 @@ func _on_MoveButton_pressed():
 	endBtn.visible = true
 	
 	if GameState.currentPlayer.space%2 == 0: 
-		print("this is working")
 		if currPlayerIdx == 1:
-			print("this is also working")
 			PollenP1 += 1
 			$HUD/HBoxContainer2/PollenScore.text = str(PollenP1)
 		
@@ -69,9 +68,7 @@ func _on_MoveButton_pressed():
 		$HUD/HBoxContainer2/HoneyScore.text = str(HoneyP1)
 		
 	if GameState.currentPlayer.space%2 == 0: 
-		print("player 2 works too")
 		if currPlayerIdx == 2:
-			print("player 2 also works")
 			PollenP2 += 1
 			$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
 		
@@ -110,7 +107,7 @@ func _on_Button_pressed():
 	
 
 func Win_game():
-	pass
+	$HUD/ColorRect.show()
 
 
 func _on_Area2D_area_entered(area):
@@ -118,5 +115,5 @@ func _on_Area2D_area_entered(area):
 		if $HUD/HBoxContainer2/P1Honey.text == "3":
 			Win_game()
 	if currPlayerIdx == 2:
-		if $HUD/HBoxContainer2/P2Honey.text == "3":
+		if $HUD/HBoxContainer3/P2Honey.text == "3":
 			Win_game()		
