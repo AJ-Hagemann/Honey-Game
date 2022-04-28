@@ -78,15 +78,6 @@ func _on_MoveButton_pressed():
 		$HUD/HBoxContainer3/PollenScore2.text = str(PollenP2)
 		$HUD/HBoxContainer3/HoneyScore2.text = str(HoneyP2)
 		
-	if GameState.currentPlayer.space <= 0: 
-		if $HUD/HBoxContainer2/P1Honey.text == "3":
-			Win_game()
-			print("gi")
-	if GameState.currentPlayer.space <= 0: 
-		if $HUD/HBoxContainer3/P2Honey.text == "3":
-			Win_game()		
-			print("HI")
-		
 		
 	
 		
@@ -119,4 +110,10 @@ func Win_game():
 	$HUD/ColorRect.show()
 
 
-
+func _on_Area2D_area_entered(area):
+	if currPlayerIdx == 1:
+		if $HUD/HBoxContainer2/P1Honey.text == "3":
+			Win_game()
+	if currPlayerIdx == 2:
+		if $HUD/HBoxContainer3/P2Honey.text == "3":
+			Win_game()		
