@@ -112,8 +112,10 @@ func Win_game():
 
 func _on_Area2D_area_entered(area):
 	if currPlayerIdx == 1:
-		if $HUD/HBoxContainer2/P1Honey.text == "3":
+		if $HUD/HBoxContainer2/HoneyScore.text == "3":
 			Win_game()
+			print("this works")
 	if currPlayerIdx == 2:
-		if $HUD/HBoxContainer3/P2Honey.text == "3":
+		if $HUD/HBoxContainer3/HoneyScore2.text == "3":
 			Win_game()		
+			print("This also works")
